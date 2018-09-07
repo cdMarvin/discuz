@@ -1,0 +1,50 @@
+<?php require(APP_PATH.'/index/view/common/header.html');?>
+<div id="main" class="main-container container">
+    <!-- 首页通栏(4个推荐位) -->
+    <?php require(APP_PATH.'/index/view/common/topic_list.html');?>
+
+    <div class="col-md-3 side-bar">
+      <?php if(!$user):?>
+        <?php require(APP_PATH.'/index/view/common/login_sidebar.html');?>
+      <?php else : ?>
+        <?php require(APP_PATH.'/index/view/common/new_topic_sidebar.html');?>
+      <?php endif;?>
+      <div class="panel panel-default corner-radius">
+          <div class="panel-heading">
+              <h3 class="panel-title">热门标签</h3>
+          </div>
+          <div class="panel-body">
+            <?php foreach($hotTags as $hotTag):?>
+              <div class="badge badge-tag-cloud">
+                <?php if($hotTag->tag_id != $tagId):?>
+                  <a href="<?=url('topic/tag');?>?tag=<?=$hotTag->tag_id;?>"><?=$hotTag->tag->name;?></a> (<?=$hotTag->topicNum;?>)
+                <?php else:?>
+                  <span><?=$hotTag->tag->name;?></span> (<?=$hotTag->topicNum;?>)
+                <?php endif;?>
+              </div>
+            <?php endforeach;?>
+          </div>
+      </div>
+      <div class="panel panel-default corner-radius">
+          <div class="panel-heading">
+              <h3 class="panel-title">小贴士</h3>
+          </div>
+          <div class="panel-body">
+              猪有猪的思想，人有人的思想。如果猪有人的思想，那它就不是猪了——是八戒!
+          </div>
+      </div>
+
+      <!--div class="panel panel-default corner-radius">
+        <div class="panel-heading">
+          <h3 class="panel-title">统计信息</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">社区会员: 747</li>
+          <li class="list-group-item">主题数: 95</li>
+          <li class="list-group-item">回帖数: 218</li>
+        </ul>
+      </div-->
+    </div>
+</div>
+<div class="clearfix"></div>
+<?php require(APP_PATH.'/index/view/common/footer.html');?>

@@ -1,0 +1,42 @@
+<?php require(APP_PATH.'/index/view/common/header.html');?>
+<div id="main" class="main-container container">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">登录</div>
+				<div class="panel-body">
+					<form role="form" method="POST" action="<?=url('index/login')?>">
+						<input type="hidden" name="_token" value="BAnCy9yzQxp30BiIkeU58OMjR5uWeDM9dCSMNwKH">
+						<div class="form-group">
+							<input type="login" class="form-control" name="login" value="" placeholder="用户名或邮箱地址">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" name="password" placeholder="密码">
+						</div>
+						<div class="form-group">
+							<input type="submit" name="commit" value="登录" class="btn btn-primary btn-lg btn-block">
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<a href="register.html">注册</a>
+					<!--<a href="/password/email">忘记密码?</a>-->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">登陆提示</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						如果您忘记了密码，请联系管理员。
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+                		</div>
+<?php require(APP_PATH.'/index/view/common/footer.html');?>

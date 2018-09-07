@@ -68,4 +68,8 @@ class Index extends \think\Controller{
     public function register(){
         echo $this->fetch('register');
     }
+
+    public function index(){
+        return $this->view();
+    }
 }
